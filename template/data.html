@@ -1,0 +1,35 @@
+{% load bootstrap4 %}
+{%  bootstrap_css %}
+{%  bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for d in data  %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>              
+                <td><img src="{{d.photo.url}}" alt="" width="50px" height="50px"></td>              
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <div class="px-5 py-4">
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-lg"><a href="{% url 'app1:register' %}">Register</a></button>
+      </div>
+</body>
+</html>
